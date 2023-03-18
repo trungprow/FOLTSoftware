@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="300" pageHeight="842" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="424468a5-bd33-49b8-8792-39c2e7aa0eb2">
+	<property name="ireport.zoom" value="1.607691607500004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaHDon" class="java.lang.String">
+		<defaultValueExpression><![CDATA[3]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     giaSP."MaSP" AS giaSP_MaSP,
+     giaSP."gia" AS giaSP_gia,
+     hoaDon."MaHDon" AS hoaDon_MaHDon,
+     hoaDon."MaSP" AS hoaDon_MaSP,
+     hoaDon."soLuong" AS hoaDon_soLuong,
+     hoaDon."gia" AS hoaDon_gia,
+     hoaDon."thanhtien" AS hoaDon_thanhtien,
+     hoaDon."khachHang" AS hoaDon_khachHang,
+     hoaDon."soDT" AS hoaDon_soDT,
+     hoaDon."Username" AS hoaDon_Username,
+     nhanVien."MaNV" AS nhanVien_MaNV,
+     nhanVien."tenNV" AS nhanVien_tenNV,
+     nhanVien."Username" AS nhanVien_Username,
+     nhanVien."gioiTinh" AS nhanVien_gioiTinh,
+     nhanVien."diaChi" AS nhanVien_diaChi,
+     nhanVien."SDT" AS nhanVien_SDT,
+     nhanVien."Email" AS nhanVien_Email,
+     sanPham."MaSP" AS sanPham_MaSP,
+     sanPham."tenSP" AS sanPham_tenSP,
+     sanPham."soLuong" AS sanPham_soLuong,
+     sanPham."MaNCC" AS sanPham_MaNCC,
+     taiKhoan."Username" AS taiKhoan_Username,
+     taiKhoan."Password" AS taiKhoan_Password,
+     taiKhoan."Role" AS taiKhoan_Role,
+     taiKhoan."Status" AS taiKhoan_Status,
+     hoaDon."tenSP" AS hoaDon_tenSP
+FROM
+     "dbo"."sanPham" sanPham INNER JOIN "dbo"."giaSP" giaSP ON sanPham."MaSP" = giaSP."MaSP"
+     INNER JOIN "dbo"."hoaDon" hoaDon ON sanPham."MaSP" = hoaDon."MaSP"
+     INNER JOIN "dbo"."taiKhoan" taiKhoan ON hoaDon."Username" = taiKhoan."Username"
+     INNER JOIN "dbo"."nhanVien" nhanVien ON taiKhoan."Username" = nhanVien."Username"
+WHERE
+     hoaDon."maHDon" = $P{MaHDon}]]>
+	</queryString>
+	<field name="giaSP_MaSP" class="java.lang.String"/>
+	<field name="giaSP_gia" class="java.lang.Double"/>
+	<field name="hoaDon_MaHDon" class="java.lang.String"/>
+	<field name="hoaDon_MaSP" class="java.lang.String"/>
+	<field name="hoaDon_soLuong" class="java.lang.String"/>
+	<field name="hoaDon_gia" class="java.lang.Double"/>
+	<field name="hoaDon_thanhtien" class="java.lang.Double"/>
+	<field name="hoaDon_khachHang" class="java.lang.String"/>
+	<field name="hoaDon_soDT" class="java.lang.String"/>
+	<field name="hoaDon_Username" class="java.lang.String"/>
+	<field name="nhanVien_MaNV" class="java.lang.String"/>
+	<field name="nhanVien_tenNV" class="java.lang.String"/>
+	<field name="nhanVien_Username" class="java.lang.String"/>
+	<field name="nhanVien_gioiTinh" class="java.lang.Boolean"/>
+	<field name="nhanVien_diaChi" class="java.lang.String"/>
+	<field name="nhanVien_SDT" class="java.lang.String"/>
+	<field name="nhanVien_Email" class="java.lang.String"/>
+	<field name="sanPham_MaSP" class="java.lang.String"/>
+	<field name="sanPham_tenSP" class="java.lang.String"/>
+	<field name="sanPham_soLuong" class="java.lang.Integer"/>
+	<field name="sanPham_MaNCC" class="java.lang.String"/>
+	<field name="taiKhoan_Username" class="java.lang.String"/>
+	<field name="taiKhoan_Password" class="java.lang.String"/>
+	<field name="taiKhoan_Role" class="java.lang.Boolean"/>
+	<field name="taiKhoan_Status" class="java.lang.Boolean"/>
+	<field name="hoaDon_tenSP" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="76" width="131" height="20" uuid="527ffe5c-3db3-45ff-b8fa-4803786d97a6"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoaDon_MaHDon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="249" height="20" uuid="4c0f7200-456f-4ec7-b2eb-877232077a9e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cambria" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HOA DON SAN PHAM]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="20" width="235" height="1" uuid="f9c9c765-cd28-4db3-bf00-f6ece5e85f9f"/>
+			</line>
+			<line>
+				<reportElement x="14" y="-1" width="235" height="1" uuid="2074dc3b-2db3-4cf5-ae96-341e82b6c00c"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="76" width="129" height="20" uuid="ed6ac3a1-8bf7-4d38-a053-1c1e6fc922bf"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Ma Hoa Don:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="129" y="44" width="100" height="20" uuid="6362dd85-51d8-4de9-95a1-ed3a8ddfc475"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nhanVien_tenNV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="44" width="129" height="20" uuid="2a464ef8-82d8-4905-8ee0-f8f1b5102dc7"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Nhan Vien Tiep Nhan]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="15" width="131" height="20" uuid="8e031799-814a-4ab8-8425-ded62becfa84"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{giaSP_MaSP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="129" height="20" uuid="56edfba5-7a8c-4b94-aa51-bee91acc6acf"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Ma San Pham:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="10" width="131" height="20" uuid="cea14f45-1ad7-48f4-a729-2db7f2a2f1e4"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sanPham_tenSP}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="129" y="41" width="131" height="20" uuid="a84a2be3-cfd5-4a18-9c43-9cf746b49283"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{giaSP_gia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="41" width="129" height="20" uuid="f4345a4c-3183-4af9-958a-8c7b48af0df1"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Gia San Pham:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="129" height="20" uuid="5fc783af-c731-4fc7-99fd-805c3b91e442"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Ten San Pham:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="41" width="26" height="20" uuid="1ca4b4d8-b1ce-4f6e-b694-c6e446c617a8"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[vnd]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="144" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement x="129" y="47" width="131" height="20" uuid="72bea3ac-0491-44e7-8a3d-7151f6d1be18"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoaDon_thanhtien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="82" width="131" height="20" uuid="6b29bdde-8440-43e7-86f9-b84d54f3ecd8"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoaDon_khachHang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="13" width="131" height="20" uuid="51519638-2377-441a-8a3d-43e77c6365a8"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hoaDon_soLuong}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="129" height="20" uuid="0b25a5be-5745-451a-bd7d-9084ef437724"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[So Luong:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="129" height="20" uuid="89588929-0f4a-4f46-8ffd-4bb9fb4d1954"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Thanh Tien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="82" width="129" height="20" uuid="ade48e37-fed0-4e62-ad54-1f2303bd7435"/>
+				<textElement>
+					<font fontName="Calibri" size="13"/>
+				</textElement>
+				<text><![CDATA[Ten Khach Hang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="47" width="26" height="20" uuid="e3bc6245-39dd-41aa-9c0f-c6e7630b7c2c"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[vnd]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="110" width="235" height="1" uuid="f64d5c8c-10bf-4d9e-a521-e950f55c5bcf"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="124" width="263" height="20" uuid="c1403e1b-86dd-447e-9e9b-972ba88aa95f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CAM ON QUY KHACH DA MUA HANG!]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="47" splitType="Stretch">
+			<line>
+				<reportElement x="14" y="12" width="235" height="1" uuid="31c42b61-83af-4647-96e7-68498fcefac3"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
